@@ -21,7 +21,11 @@ describe 'mongodb::default' do
   end
 
   it 'runs apt get update' do
-    expect(chef_run).to add_apt_repository 'monogodb-org'
+    expect(chef_run).to add_apt_repository 'mongodb-org'
+  end
+
+  it 'should install mongodb' do
+    expect(chef_run).to install_package 'mongodb-org'
   end
   # context 'When all attributes are default, on CentOS 7' do
   #   # for a complete list of available platforms and versions see:
